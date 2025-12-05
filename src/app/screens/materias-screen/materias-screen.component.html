@@ -4,7 +4,7 @@
     <!-- Encabezado con los títulos de bienvenida y rol del usuario -->
     <div class="row mt-5 mb-5">
       <div class="col-12">
-        <span class="title-perfil">Bienvenido {{ name_user }}</span>
+        <span class="title-perfil">¡Bienvenido! {{ name_user }}</span>
         <br />
         <span class="title-perfil">{{ rol }}</span>
       </div>
@@ -26,7 +26,7 @@
                 <mat-label>Buscar por NRC o Nombre</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Ej. 12345 o Programación" #input>
               </mat-form-field>
-              
+
               <table
                 mat-table
                 [dataSource]="dataSource"
