@@ -117,7 +117,7 @@ export class AdministradoresService {
     } else {
       headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
-    return this.http.post<any>(`${environment.url_api}/admin/`, data, {
+    return this.http.post<any>(`${environment.url_api}/api/crear-admin/`, data, {
       headers,
     });
   }
