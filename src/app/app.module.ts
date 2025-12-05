@@ -58,6 +58,7 @@ import { GraficasScreenComponent } from './screens/graficas-screen/graficas-scre
 import { MateriasScreenComponent } from './screens/materias-screen/materias-screen.component';
 import { RegistroMateriasScreenComponent } from './screens/registro-materias-screen/registro-materias-screen.component';
 import { RegistroMateriasComponent } from './partials/registro-materias/registro-materias.component';
+import { EditarMateriaModalComponent } from './modals/editor-materia-modal/editor-materia-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { RegistroMateriasComponent } from './partials/registro-materias/registro
     GraficasScreenComponent,
     MateriasScreenComponent,
     RegistroMateriasScreenComponent,
+    EditarMateriaModalComponent,
   ],
   imports: [
     BrowserModule,

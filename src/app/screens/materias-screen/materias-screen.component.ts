@@ -8,6 +8,7 @@ import { MaestrosService } from 'src/app/services/maestros.service';
 import { MateriasService } from 'src/app/services/materias.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EliminarUserModalComponent } from 'src/app/modals/eliminar-user-modal/eliminar-user-modal.component';
+import { EditarMateriaModalComponent } from 'src/app/modals/editor-materia-modal/editor-materia-modal.component';
 
 export interface DatosMateria {
   id: number;
@@ -174,8 +175,21 @@ export class MateriasScreenComponent implements OnInit, AfterViewInit {
     );
   }
 
-  public goEditar(idMateria: number) {
-    this.router.navigate(['registro-materias/' + idMateria]);
+    public goEditar(idMateria: number) {
+    const dialogRef = this.dialog.open(EditarMateriaModalComponent, {
+      data: { id: idMateria, rol: 'administrador' }, // Pasamos el ID y Rol
+      height: 'auto',
+      width: '800px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.isUpdate) {
+        console.log('Materia actualizada');
+        alert("Materia actualizada correctamente");
+        // Recargar la tabla para ver los cambios
+        this.obtenerMaterias();
+      }
+    });
   }
 
   public delete(idMateria: number) {

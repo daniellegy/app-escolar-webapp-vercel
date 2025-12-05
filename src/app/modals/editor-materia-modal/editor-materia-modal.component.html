@@ -1,0 +1,99 @@
+<div class="wrapper">
+    <div class="icon-close">
+        <button class="btn" (click)="cerrar_modal()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+    <div class="body-modal">
+        <h1 class="title-modal">Editar Materia</h1>
+
+        <div class="form-container">
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>NRC</mat-label>
+                        <input matInput [(ngModel)]="materia.nrc" mask="000000" disabled>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput [(ngModel)]="materia.nombre" mask="A*" [patterns]="customPatterns">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Sección</mat-label>
+                        <input matInput [(ngModel)]="materia.seccion" mask="000">
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Salón</mat-label>
+                        <input matInput [(ngModel)]="materia.salon">
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Créditos</mat-label>
+                        <input matInput [(ngModel)]="materia.creditos" mask="00">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Programa Educativo</mat-label>
+                <mat-select [(ngModel)]="materia.carrera">
+                    <mat-option *ngFor="let carrera of carreras" [value]="carrera.viewValue">
+                        {{ carrera.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Profesor</mat-label>
+                <mat-select [(ngModel)]="materia.profesor">
+                    <mat-option *ngFor="let m of maestros" [value]="m.id">
+                        {{ m.user.first_name }} {{ m.user.last_name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Inicio</mat-label>
+                        <input matInput [ngxTimepicker]="pickerI" [(ngModel)]="materia.hora_inicial" readonly>
+                        <ngx-material-timepicker #pickerI [format]="24"></ngx-material-timepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Fin</mat-label>
+                        <input matInput [ngxTimepicker]="pickerF" [(ngModel)]="materia.hora_final" readonly>
+                        <ngx-material-timepicker #pickerF [format]="24"></ngx-material-timepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <label>Días a impartir:</label>
+             <div class="checkbox-group">
+                <mat-checkbox *ngFor="let dia of diasList"
+                              (change)="checkboxChange($event)"
+                              [value]="dia.nombre"
+                              [checked]="revisarSeleccion(dia.nombre)"
+                              class="me-3">
+                    {{dia.nombre}}
+                </mat-checkbox>
+             </div>
+        </div>
+
+        <div class="buttons-modal mt-4">
+            <button mat-button class="btn-regresar" (click)="cerrar_modal()">Cancelar</button>
+            <button mat-button class="btn-eliminar" style="background-color: #007bff; border-color: #007bff;" (click)="actualizarMateria()">Guardar</button>
+        </div>
+    </div>
+</div>
