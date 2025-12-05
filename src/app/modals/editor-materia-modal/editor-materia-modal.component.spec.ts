@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditorMateriaModalComponent } from './editor-materia-modal.component';
+import { EditarMateriaModalComponent } from './editor-materia-modal.component';
 
 describe('EditorMateriaModalComponent', () => {
-  let component: EditorMateriaModalComponent;
-  let fixture: ComponentFixture<EditorMateriaModalComponent>;
+  let component: EditarMateriaModalComponent;
+  let fixture: ComponentFixture<EditarMateriaModalComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EditorMateriaModalComponent]
+      declarations: [EditarMateriaModalComponent]
     });
-    fixture = TestBed.createComponent(EditorMateriaModalComponent);
+    fixture = TestBed.createComponent(EditarMateriaModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
