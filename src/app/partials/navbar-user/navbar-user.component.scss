@@ -13,6 +13,18 @@
 }
 
 // =====================
+// PALETTE CSS VARIABLES
+// =====================
+[data-theme="dark"] {
+  --background-main: #181a1b;
+  --sidebar-bg: #181a1b;
+  --navbar-bg: #181a1b;
+  --text-main: #f5f6fa;
+  --table-bg: #181a1b;
+  --table-header-bg: #222326;
+}
+
+// =====================
 // LAYOUT WRAPPERS
 // =====================
 .navbar-sidebar-wrapper {
