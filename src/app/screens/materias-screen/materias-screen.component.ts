@@ -8,7 +8,7 @@ import { MaestrosService } from 'src/app/services/maestros.service';
 import { MateriasService } from 'src/app/services/materias.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EliminarUserModalComponent } from 'src/app/modals/eliminar-user-modal/eliminar-user-modal.component';
-import { EditarMateriaModalComponent } from 'src/app/modals/editor-materia-modal/editor-materia-modal.component';
+import { EditarMateriaModalComponent } from 'src/app/modals/editar-materia-modal/editar-materia-modal.component';
 
 export interface DatosMateria {
   id: number;
