@@ -105,6 +105,12 @@
     </button>
     <span class="scoop-navbar-logo">BUAP</span>
     <div class="scoop-navbar-icons">
+      <span
+        class="material-icons navbar-icon"
+        (click)="togglePalette()"
+        style="cursor: pointer"
+        >palette</span
+      >
       <div class="scoop-navbar-avatar" *ngIf="userInitial">
         {{ userInitial }}
       </div>
