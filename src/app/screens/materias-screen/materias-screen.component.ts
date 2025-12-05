@@ -62,7 +62,7 @@ export class MateriasScreenComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    
+
     // Configurar filtro personalizado para NRC y nombre
     this.dataSource.filterPredicate = (data: DatosMateria, filter: string) => {
       const searchStr = filter.toLowerCase();
@@ -77,6 +77,12 @@ export class MateriasScreenComponent implements OnInit, AfterViewInit {
     this.name_user = this.facadeService.getUserCompleteName();
     this.rol = this.facadeService.getUserGroup();
     //Validar que haya inicio de sesión
+    //Validar permiso para editar y eliminar materias
+    if (!this.facadeService.canEditOrDeleteMaterias()) {
+      this.displayedColumns = this.displayedColumns.filter(
+        (column) => column !== 'editar' && column !== 'eliminar'
+      );
+    }
     //Obtengo el token del login
     this.token = this.facadeService.getSessionToken();
     console.log('Token: ', this.token);
@@ -145,7 +151,7 @@ export class MateriasScreenComponent implements OnInit, AfterViewInit {
               );
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;
-              
+
               // Configurar filtro personalizado
               this.dataSource.filterPredicate = (data: DatosMateria, filter: string) => {
                 const searchStr = filter.toLowerCase();

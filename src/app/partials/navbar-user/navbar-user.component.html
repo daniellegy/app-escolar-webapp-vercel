@@ -23,6 +23,7 @@
             <span>Usuarios</span>
           </li>
           <li
+            *ngIf="canRegisterMaterias()"
             routerLink="/registro-materias"
             routerLinkActive="active"
             class="dropdown-submenu-item"
@@ -145,6 +146,7 @@
               <span>Usuarios</span>
             </li>
             <li
+              *ngIf="canRegisterMaterias()"
               routerLink="/registro-materias"
               routerLinkActive="active"
               class="dropdown-submenu-item"

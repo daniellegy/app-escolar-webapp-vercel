@@ -215,4 +215,16 @@ export class FacadeService {
   canSeeRegisterItem(): boolean {
     return this.isAdmin() || this.isTeacher();
   }
+
+  canRegisterMaterias(): boolean {
+    return this.isAdmin();
+  }
+
+  canSeeMateriasList(): boolean {
+    return this.isAdmin() || this.isTeacher();
+  }
+
+  canEditOrDeleteMaterias(): boolean {
+    return this.isAdmin();
+  }
 }

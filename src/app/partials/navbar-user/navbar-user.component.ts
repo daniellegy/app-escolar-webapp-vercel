@@ -151,4 +151,7 @@ export class NavbarUserComponent implements OnInit {
   canSeeRegisterItem(): boolean {
     return this.facadeService.canSeeRegisterItem();
   }
+  public canRegisterMaterias(): boolean {
+  return this.facadeService.canRegisterMaterias();
+  }
 }
