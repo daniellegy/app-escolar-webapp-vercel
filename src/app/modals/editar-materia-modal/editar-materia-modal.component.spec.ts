@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarMateriaModalComponent } from './editor-materia-modal.component';
+import { EditarMateriaModalComponent } from './editar-materia-modal.component';
 
 describe('EditorMateriaModalComponent', () => {
   let component: EditarMateriaModalComponent;
