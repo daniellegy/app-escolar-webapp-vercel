@@ -16,35 +16,6 @@ export class NavbarUserComponent implements OnInit {
   public userRole: string = '';
   public registroExpanded: boolean = false;
 
-  // Estas variables se utilizarán por si se habilita el tema oscuro
-  paletteMode: 'light' | 'dark' = 'light';
-  colorPalettes = {
-    light: {
-      '--background-main': '#f4f7fb',
-      '--sidebar-bg': '#23395d',
-      '--navbar-bg': '#fff',
-      '--text-main': '#222',
-      '--table-bg': '#fff',
-      '--table-header-bg': '#cfe2ff',
-    },
-    dark: {
-      '--background-main': '#181a1b',
-      '--sidebar-bg': '#1a2636',
-      '--navbar-bg': '#222',
-      '--text-main': '#e4ecfa',
-      '--table-bg': '#222',
-      '--table-header-bg': '#30507a',
-    },
-  };
-
-  togglePalette() {
-    this.paletteMode = this.paletteMode === 'light' ? 'dark' : 'light';
-    const palette = this.colorPalettes[this.paletteMode];
-    Object.keys(palette).forEach((key) => {
-      document.documentElement.style.setProperty(key, palette[key]);
-    });
-  }
-
   constructor(private router: Router, private facadeService: FacadeService) {
     // Obtenemos el rol del usuario y la inicial del nombre
     const name = this.facadeService.getUserCompleteName();
@@ -59,12 +30,6 @@ export class NavbarUserComponent implements OnInit {
       if (!this.isMobileView) {
         this.mobileOpen = false;
       }
-    });
-    // Siempre inicia con la paleta blanca
-    this.paletteMode = 'light';
-    const palette = this.colorPalettes['light'];
-    Object.keys(palette).forEach((key) => {
-      document.documentElement.style.setProperty(key, palette[key]);
     });
   }
 

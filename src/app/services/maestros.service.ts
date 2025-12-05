@@ -119,7 +119,7 @@ export class MaestrosService {
       headers = new HttpHeaders({ 'Content-Type': 'application/json' });
       console.log('No se encontró el token del usuario');
     }
-    return this.http.put<any>(`${environment.url_api}/maestros/`, data, {
+    return this.http.put<any>(`${environment.url_api}/maestros/?id=${data.id}`, data, {
       headers,
     });
   }
